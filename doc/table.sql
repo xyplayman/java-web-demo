@@ -1,0 +1,25 @@
+CREATE TABLE article (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    title VARCHAR(1024) NOT NULL,
+    content MEDIUMTEXT NOT NULL,
+    post_time DATETIME NOT NULL,
+    PRIMARY KEY (id)
+)
+ENGINE = InnoDB CHARACTER SET = utf8mb4
+COMMENT '文章';
+
+CREATE TABLE article_tag (
+    article_id BIGINT UNSIGNED NOT NULL,
+    tag_id BIGINT UNSIGNED NOT NULL,
+    PRIMARY KEY (article_id, tag_id)
+)
+ENGINE = InnoDB CHARACTER SET = utf8mb4
+COMMENT '文章和标签关联';
+
+CREATE TABLE tag (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(256) NOT NULL,
+    PRIMARY KEY (id)
+)
+ENGINE = InnoDB CHARACTER SET = utf8mb4
+COMMENT '标签';
